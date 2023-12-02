@@ -21,9 +21,9 @@ def validate_game_data(data):
     for k in fields:
         colours = k.split(",")
         for j in colours:
-            counts = j.split(" ")
-            dice_count = int(counts[1])
-            match counts[2].lower():
+            dice_count, colour = j.strip().split(" ")
+            dice_count = int(dice_count)
+            match colour:
                 case "red":
                     if dice_count > RED:
                         valid = False

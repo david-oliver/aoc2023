@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from math import prod
-import time
 
 
 def get_game_id(inputs):
@@ -22,16 +21,8 @@ def count_game_data(data):
         for j in colours:
             dice_count, colour = j.strip().split(" ")
             dice_count = int(dice_count)
-            match colour.lower():
-                case "red":
-                    if min_rgb["red"] < dice_count:
-                        min_rgb["red"] = dice_count
-                case "blue":
-                    if min_rgb["blue"] < dice_count:
-                        min_rgb["blue"] = dice_count
-                case "green":
-                    if min_rgb["green"] < dice_count:
-                        min_rgb["green"] = dice_count
+            if min_rgb[colour] < dice_count:
+                min_rgb[colour] = dice_count
     return min_rgb
 
 
