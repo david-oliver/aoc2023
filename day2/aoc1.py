@@ -37,11 +37,10 @@ def validate_game_data(data):
 
 
 with open("input.txt") as file:
-    total = 0
+    total = []
     for line in file:
         game_id = get_game_id(line.strip())
         game_data = get_game_data(line.strip())
-        valid_game = validate_game_data(game_data)
-        if valid_game:
-            total += game_id
-    print(total)
+        if validate_game_data(game_data):
+            total.append(game_id)
+    print(sum(total))

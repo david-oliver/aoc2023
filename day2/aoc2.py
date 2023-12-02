@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from math import prod
+import time
 
 
 def get_game_id(inputs):
@@ -35,9 +36,9 @@ def count_game_data(data):
 
 
 with open("input.txt") as file:
-    total = 0
+    total = []
     for line in file:
         game_id = get_game_id(line.strip())
         game_data = get_game_data(line.strip())
-        total += prod(count_game_data(game_data).values())
-    print(total)
+        total.append(prod(count_game_data(game_data).values()))
+    print(sum(total))
